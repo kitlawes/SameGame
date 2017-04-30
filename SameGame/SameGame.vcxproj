@@ -189,6 +189,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SameGame.h" />
+    <ClInclude Include="SameGameBoard.h" />
     <ClInclude Include="SameGameDoc.h" />
     <ClInclude Include="SameGameView.h" />
     <ClInclude Include="stdafx.h" />
@@ -197,6 +198,7 @@
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="SameGame.cpp" />
+    <ClCompile Include="SameGameBoard.cpp" />
     <ClCompile Include="SameGameDoc.cpp" />
     <ClCompile Include="SameGameView.cpp" />
     <ClCompile Include="stdafx.cpp">
