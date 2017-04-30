@@ -13,6 +13,21 @@ IMPLEMENT_DYNCREATE(CSameGameView, CView)
 BEGIN_MESSAGE_MAP(CSameGameView, CView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_ERASEBKGND()
+	ON_COMMAND(ID_LEVEL_3COLORS, &CSameGameView::OnLevel3colors)
+	ON_COMMAND(ID_LEVEL_4COLORS, &CSameGameView::OnLevel4colors)
+	ON_COMMAND(ID_LEVEL_5COLORS, &CSameGameView::OnLevel5colors)
+	ON_COMMAND(ID_LEVEL_6COLORS, &CSameGameView::OnLevel6colors)
+	ON_COMMAND(ID_LEVEL_7COLORS, &CSameGameView::OnLevel7colors)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_3COLORS,
+		&CSameGameView::OnUpdateLevel3colors)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_4COLORS,
+		&CSameGameView::OnUpdateLevel4colors)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_5COLORS,
+		&CSameGameView::OnUpdateLevel5colors)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_6COLORS,
+		&CSameGameView::OnUpdateLevel6colors)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_7COLORS,
+		&CSameGameView::OnUpdateLevel7colors)
 END_MESSAGE_MAP()
 
 // CSameGameView construction/destruction
@@ -159,4 +174,129 @@ void CSameGameView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 	//  Default OnLButtonDown
 	CView::OnLButtonDown(nFlags, point);
+}
+
+void CSameGameView::OnLevel3colors()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(3);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnLevel4colors()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(4);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnLevel5colors()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(5);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnLevel6colors()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(6);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnLevel7colors()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(7);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnUpdateLevel3colors(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == 3);
+}
+
+void CSameGameView::OnUpdateLevel4colors(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == 4);
+}
+
+void CSameGameView::OnUpdateLevel5colors(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == 5);
+}
+
+void CSameGameView::OnUpdateLevel6colors(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == 6);
+}
+
+void CSameGameView::OnUpdateLevel7colors(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == 7);
 }

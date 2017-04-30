@@ -31,3 +31,11 @@ BOOL CSameGameDoc::OnNewDocument()
 
 	return TRUE;
 }
+
+void CSameGameDoc::SetNumColors(int nColors)
+{
+	//  Set the number of colors first
+	m_board.SetNumColors(nColors);
+	//  Then reset the game board
+	m_board.SetupBoard();
+}
