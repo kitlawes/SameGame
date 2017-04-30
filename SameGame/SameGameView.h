@@ -4,6 +4,7 @@ class CSameGameView : public CView
 {
 protected: // create from serialization only
 	CSameGameView();
+	virtual ~CSameGameView();
 	DECLARE_DYNCREATE(CSameGameView)
 
 	// Attributes
@@ -17,10 +18,7 @@ protected:
 
 	// Implementation
 public:
-
 	void ResizeWindow();
-
-	virtual ~CSameGameView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -31,6 +29,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual void OnInitialUpdate();
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // debug version in SameGameView.cpp

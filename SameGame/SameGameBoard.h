@@ -18,9 +18,28 @@ public:
 	int GetRows(void) const { return m_nRows; }
 	/*  Function to delete the board and free memory */
 	void DeleteBoard(void);
+	/*  Is the game over? */
+	bool IsGameOver(void) const;
+	/*  Get the number of blocks remaining */
+	int GetRemainingCount(void) const { return m_nRemaining; }
+	/*  Function to delete all adjacent blocks */
+	int DeleteBlocks(int row, int col);
 private:
 	/*  Function to create the board and allocate memory */
 	void CreateBoard(void);
+	/*  Direction enumeration for deleting blocks */
+	enum Direction
+	{
+		DIRECTION_UP,
+		DIRECTION_DOWN,
+		DIRECTION_LEFT,
+		DIRECTION_RIGHT
+	};
+	/*  Recursive helper function for deleting blocks */
+	int DeleteNeighborBlocks(int row, int col, int color,
+		Direction direction);
+	/*  Function to compact the board after blocks are eliminated */
+	void CompactBoard(void);
 	/*  2D array pointer */
 	int** m_arrBoard;
 	/*  List of colors, 0 is background and 1-3 are piece colors */
@@ -30,4 +49,6 @@ private:
 	int m_nRows;
 	int m_nHeight;
 	int m_nWidth;
+	/*  Number of blocks remaining */
+	int m_nRemaining;
 };
