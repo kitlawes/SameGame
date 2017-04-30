@@ -187,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="OptionsDialog.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SameGame.h" />
     <ClInclude Include="SameGameBoard.h" />
@@ -197,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="OptionsDialog.cpp" />
     <ClCompile Include="SameGame.cpp" />
     <ClCompile Include="SameGameBoard.cpp" />
     <ClCompile Include="SameGameDoc.cpp" />
