@@ -5,6 +5,8 @@ class CSameGameBoard
 public:
 	/*  Default Constructor */
 	CSameGameBoard(void);
+	/*  Copy Constructor */
+	CSameGameBoard(const CSameGameBoard& board);
 	/*  Destructor */
 	~CSameGameBoard(void);
 	/*  Function to randomly setup the board */

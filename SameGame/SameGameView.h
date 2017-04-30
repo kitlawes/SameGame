@@ -44,6 +44,12 @@ public:
 	afx_msg void OnUpdateLevel7colors(CCmdUI *pCmdUI);
 	afx_msg void OnSetupBlockcount();
 	afx_msg void OnSetupBlocksize();
+	/*  Functions for undo/redo */
+	afx_msg void OnEditUndo();
+	afx_msg void OnEditRedo();
+	/*  Functions to update the undo/redo menu options */
+	afx_msg void OnUpdateEditUndo(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateEditRedo(CCmdUI *pCmdUI);
 };
 
 #ifndef _DEBUG  // debug version in SameGameView.cpp

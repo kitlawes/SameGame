@@ -26,6 +26,10 @@ BEGIN_MESSAGE_MAP(CSameGameView, CView)
 	ON_UPDATE_COMMAND_UI(ID_LEVEL_7COLORS, &CSameGameView::OnUpdateLevel7colors)
 	ON_COMMAND(ID_SETUP_BLOCKCOUNT, &CSameGameView::OnSetupBlockcount)
 	ON_COMMAND(ID_SETUP_BLOCKSIZE, &CSameGameView::OnSetupBlocksize)
+	ON_COMMAND(ID_EDIT_UNDO, &CSameGameView::OnEditUndo)
+	ON_COMMAND(ID_EDIT_REDO32771, &CSameGameView::OnEditRedo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_UNDO, &CSameGameView::OnUpdateEditUndo)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_REDO32771, &CSameGameView::OnUpdateEditRedo)
 END_MESSAGE_MAP()
 
 // CSameGameView construction/destruction
@@ -351,4 +355,54 @@ void CSameGameView::OnSetupBlocksize()
 		//  Resize the view
 		ResizeWindow();
 	}
+}
+
+void CSameGameView::OnEditUndo()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Call undo on the document
+	pDoc->UndoLast();
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnEditRedo()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Call redo on the document
+	pDoc->RedoLast();
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+void CSameGameView::OnUpdateEditUndo(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Enable option if it is available
+	pCmdUI->Enable(pDoc->CanUndo());
+}
+
+void CSameGameView::OnUpdateEditRedo(CCmdUI *pCmdUI)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Enable option if it is available
+	pCmdUI->Enable(pDoc->CanRedo());
 }
